@@ -1,8 +1,19 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 4.0)
 project(untitled)
 
 set(CMAKE_CXX_STANDARD 20)
 
-find_package(Eigen3 CONFIG REQUIRED)
-target_link_libraries(main PRIVATE Eigen3::Eigen)
-add_executable(untitled main.cpp)
+set(EIGEN3_INCLUDE_DIR "C:/Users/Mateusz/Downloads/eigen-5.0.0/eigen-5.0.0")
+
+include_directories(${EIGEN3_INCLUDE_DIR})
+
+set(SOURCE_FILES
+        main.cpp
+        strassen.cpp
+)
+
+add_executable(untitled main.cpp
+        strassen.cpp
+        strassen.h
+        ai_method.cpp
+        ai_method.h)
